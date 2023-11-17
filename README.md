@@ -1,4 +1,4 @@
-# Meet App
+# Meet-Up App
 
 A serverless, progressive web application, built with React using test-driven development (TDD) technique. The application will fetch its data using Google Calendars API.
 
