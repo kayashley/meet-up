@@ -19,13 +19,13 @@ describe("<NumberOfEvents /> component", () => {
   // contains a textbox with an input value of 32
   test("renders a textbox with a default value of 32", () => {
     const input = NumberOfEventsComponent.queryByRole("textbox");
-    expect(input).toBeInTheDocument();
+    expect(input).toHaveValue("32");
   });
 
   // input value within textbox changes according to the users input
-  test("renders the users input within the textbox", async () => {
+  test("renders number of events when user types within the textbox", async () => {
     const input = NumberOfEventsComponent.queryByRole("textbox");
-    await userEvent.type(input, "{{backspace}{backspace}10");
+    await userEvent.type(input, "{backspace}{backspace}10");
     expect(input).toHaveValue("10");
   });
 });
