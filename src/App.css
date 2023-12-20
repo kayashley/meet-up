@@ -85,3 +85,10 @@ p {
   background-color: var(--detail-btn-hover-color);
   border-radius: 40px;
 }
+
+.alerts-container {
+  position: relative;
+  margin: auto;
+  width: 500px;
+  z-index: 1000;
+}

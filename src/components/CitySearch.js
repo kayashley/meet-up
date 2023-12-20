@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const CitySearch = ({ allLocations, setCurrentCity }) => {
+const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
   // false as you don't want it to be shown unless the input field is "in focus"
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [query, setQuery] = useState("");
@@ -21,13 +21,23 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
       : [];
     setQuery(value);
     setSuggestions(filteredLocations);
+
+    let infoText;
+    if (filteredLocations.length === 0) {
+      infoText =
+        "We can not find the city you are looking for. Please try another city";
+    } else {
+      infoText = "";
+    }
+    setInfoAlert(infoText);
   };
 
-  const handleItemCLicked = (event) => {
+  const handleItemClicked = (event) => {
     const value = event.target.textContent;
     setQuery(value);
-    setShowSuggestions(false); // hides the list
+    setShowSuggestions(false);
     setCurrentCity(value);
+    setInfoAlert("");
   };
 
   return (
@@ -44,12 +54,12 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
         <ul className="suggestions">
           {suggestions.map((suggestion) => {
             return (
-              <li onClick={handleItemCLicked} key={suggestion}>
+              <li onClick={handleItemClicked} key={suggestion}>
                 {suggestion}
               </li>
             );
           })}
-          <li onClick={handleItemCLicked} key="See all cities">
+          <li onClick={handleItemClicked} key="See all cities">
             <b>See all cities</b>
           </li>
         </ul>
