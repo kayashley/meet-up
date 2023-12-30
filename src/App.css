@@ -63,6 +63,7 @@ p {
 
 .number-of-events-input {
   width: 30px;
+  margin-bottom: 30px;
 }
 
 .event {
@@ -96,6 +97,7 @@ p {
 .alerts-container {
   position: relative;
   margin: auto;
+  margin-top: 20px;
   width: 500px;
   z-index: 1000;
 }

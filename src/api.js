@@ -25,6 +25,7 @@ export const getAccessToken = async () => {
   return accessToken;
 };
 
+// checks whether it's a valid token or not, if not redirects to oauth
 const checkToken = async (accessToken) => {
   const response = await fetch(
     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
@@ -67,6 +68,7 @@ export const getEvents = async () => {
   }
 };
 
+// removes unnecessary query params from URL, ultimately making it shorter and cleaner
 const removeQuery = () => {
   let newurl;
   if (window.history.pushState && window.location.pathname) {
@@ -82,6 +84,7 @@ const removeQuery = () => {
   }
 };
 
+// takes your code and encodes it using encodeURIComponent, then gets a token using the encoded code
 const getToken = async (code) => {
   const encodeCode = encodeURIComponent(code);
   const response = await fetch(
