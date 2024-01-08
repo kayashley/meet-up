@@ -1,6 +1,7 @@
 // src/components/CityEventsChart.js
 
 import { useState, useEffect } from "react";
+
 import {
   ScatterChart,
   Scatter,
@@ -16,7 +17,7 @@ const CityEventsChart = ({ allLocations, events }) => {
 
   useEffect(() => {
     setData(getData());
-  }, [`${events}`]);
+  }, [events]);
 
   const getData = () => {
     const data = allLocations.map((location) => {
@@ -31,7 +32,7 @@ const CityEventsChart = ({ allLocations, events }) => {
 
   // 100% width causes responsive issues
   return (
-    <ResponsiveContainer width="99%" height={400}>
+    <ResponsiveContainer width="70%" height={400}>
       <ScatterChart
         margin={{
           top: 20,
@@ -49,7 +50,7 @@ const CityEventsChart = ({ allLocations, events }) => {
           allowDecimals={false}
         />
         <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-        <Scatter name="A school" data={data} fill="#EE8471" />
+        <Scatter name="A school" data={data} fill="#DACAEF" color="#white" />
       </ScatterChart>
     </ResponsiveContainer>
   );

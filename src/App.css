@@ -1,22 +1,43 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 
 :root {
-  --background-color: #e7c7c1;
-  --text-color: #000;
+  --background-color: #534663;
+  --text-color: #b2a5c3;
   --suggestions-hover-color: #666464;
   --suggestions-list-color: #f7f6f6;
-  --event-background-color: #eae0de;
-  --detail-btn-hover-color: #d5a89f;
+  --event-background-color: #c9b5e3;
+  --detail-btn-hover-color: #b2a5c3;
 }
 
 .App {
   text-align: center;
   padding: 2% 5%;
   background-color: var(--background-color);
+  font-family: "Roboto", sans-serif;
+}
+
+.charts-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+@media (max-width: 768px) {
+  .charts-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+h1 {
+  color: var(--text-color);
 }
 
 p {
   margin: 5px 0;
+}
+
+.label-city-search {
+  color: white;
 }
 
 #city-search {
@@ -29,6 +50,12 @@ p {
 .city {
   margin-top: 15px;
   height: 25px;
+}
+
+#city-search-input {
+  border-radius: 4px;
+  border: solid white;
+  text-align: center;
 }
 
 .suggestions {
@@ -61,20 +88,30 @@ p {
   color: var(--suggestions-hover-color);
 }
 
+.label-number-of-events {
+  color: white;
+}
+
 .number-of-events-input {
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 4px;
+  border: solid white;
   width: 30px;
   margin-bottom: 30px;
 }
 
 .event {
-  padding: 10px 20px 50px;
+  padding: 10px 70px 65px;
   margin: auto;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   text-align: left;
   border: 1px solid #ccccccce;
   border-radius: 10px;
   box-shadow: 2px 2px 4px -3px rgba(0, 0, 0, 0.75);
   background-color: var(--event-background-color);
+  position: relative;
+  margin-right: 50px;
 }
 
 #event-list {
@@ -87,6 +124,9 @@ p {
   padding: 5px 8px;
   cursor: pointer;
   border-radius: 40px;
+  border: solid white;
+  margin-top: 10px;
+  margin-right: -70px;
 }
 
 .details-btn:hover {
